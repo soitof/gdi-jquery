@@ -31,7 +31,11 @@
  * ***************/
 
 .individually {
-	color: #F05B62;
+	color: #F05B62 !important;
+}
+
+.questions {
+	color: #3399CC !important;
 }
 
 .reveal footer{

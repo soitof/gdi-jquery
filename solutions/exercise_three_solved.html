@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Video Links</title>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><a href="https://www.youtube.com/watch?v=TBDo0Em5EmM">Ping Pong</a></li>
+				<li><a href="https://www.youtube.com/watch?v=Wiy_eHdj8kg">Hard drive tear down</a></li>
+				<li><a href="https://www.youtube.com/watch?v=-oUd7cxci78">Day 'n night boom boom pow</a></li>
+			</ul>
+		</div>
+	
+	<script type="text/javascript"src="http://www.teaching-materials.org/common/youtube.js"></script>
+	<script>
+	</script>
+   var videoLinks = $('a');
+   videoLinks.each(function(index, elem) {
+      var videoLink = $(elem);
+      var linkUrl = videoLink.attr('href');
+      var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
+      var thumbnailImg = $('<img>');
+      thumbnailImg.attr('src', thumbnailUrl);
+      videoLink.append(thumbnailImg);
+    });
+	</body>
+</html>

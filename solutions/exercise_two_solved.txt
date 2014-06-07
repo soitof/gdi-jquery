@@ -1,0 +1,7 @@
+$("img");
+$(".logo");
+$(".media");
+$(".tagline")
+$("a.green");
+$(".blue .topic");
+$("#donate a");
