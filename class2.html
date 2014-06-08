@@ -42,638 +42,409 @@
 			<section>
 				<img src="images/gdi_logo_badge.png" alt="" />
 				<h3>JavaScript Libraries: Intro to jQuery</h3>
-				<h4>Class 1</h4>
+				<h4>Class 2</h4>
 				<h5 class='title-page'>Created by Pamela Fox <br>Adapted by Foti Hatzis</h5>
 			</section>
 			<!-- end: 1 -->
 
-			<!-- Welcome: 2 -->
+			<!-- Review: 2 -->
 			<section>
 				<section>
-					<h3>Welcome!</h3>
-						<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
-				</section>
-				<section>
-					<h3>Some "Rules"</h3>
+					<h3>Review</h3>
+					<p class="fragment fade-in">The DOM</p>
+					<p class="fragment fade-in">Libraries</p>
+					<p class="fragment fade-in">jQuery</p>
+					<p class="fragment fade-in">Collections</p>
+					<p>Working with elements:</p>
 					<ul>
-						<li>We are here for you!</li>
-						<li>Every question is important</li>
-						<li>Help each other</li>
-						<li>Be Respectful</li>
-						<li>Have fun!</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Introductions</h3>
-					<ul>
-						<li>Who are you?</li>
-						<li>What spurred you into learning about development?</li>
-						<li>What do you hope to get out of the class?</li>
+						<li class="fragment fade-in">reading</li>
+						<li class="fragment fade-in">editing</li>
+						<li class="fragment fade-in">creating</li>
+						<li class="fragment fade-in">injecting</li>
 					</ul>
 				</section>
 			</section>
 			<!-- end: 2 -->
 
-			<!-- Quick review: 3-->
+			<!-- Events: 3 -->
 			<section>
 				<section>
-					<h3>The DOM</h3>
-					<p>
-						Allows us to represent and interacting with objects in HTML, XHTML and XML documents. <br>
-						Objects in the DOM tree may be addressed and manipulated by using methods on the objects.
-					</p>
+					<h3>Events!</h3>
+						<p>Events (actions) that occur within the DOM.</p>
+						<p class="fragment fade-in">These events let event-driven languages register various event handlers/listeners.</p>
 				</section>
 				<section>
-					<h3>Cool data types</h3>
+					<p>Events get sent down from the window to the element, which then bubbles it back up.</p>
+					<p>Handlers will catch the event and deal with it.</p>
+					<div class="fragment fade-in">
+						<p>There is a huge collection of events the dom can handle.</p>			
+						<ul>
+							<li class="fragment fade-in">Mouse events</li>
+							<li class="fragment fade-in">Keyboard events</li>
+							<li class="fragment fade-in">HTML frame/object events</li>
+							<li class="fragment fade-in">HTML form events</li>
+							<li class="fragment fade-in">User interface events</li>
+							<li class="fragment fade-in">Mutation (structural) changes</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>Common events</h3>
+					<p class="fragment fade-in">Keyboard events: keyup, keydown, keypress</p>
+					<p class="fragment fade-in">Mouse events: click, mousedown, mouseup</p>
+					<p class="fragment fade-in">Form events: change, focus, blur</p>
+				</section>
+				<section>
+					<h3>Add some events</h3>
 					<pre><code class="javascript">
-var myString = "This is a string!";
-var myInteger = 1;
-var myBoolean = true;
-var myArray = ["string", 1, myVar, true];
-var myObject = {
-        name: "Foti",
-        adjective: "Cool",
-        roles: ["developer", "teacher", "fighter"]
-}
+$('#button').on('click', function () {
+	console.log('clicked!');
+});
 					</code></pre>
-				</section>
-				<section>
-					<h3>Messing with the dom</h3>
 					<pre><code class="javascript">
-document.getElementById('presentation');
-document.getElementsByClassName('slide');
-document.getElementsByTagName('body');
+$('form').on('submit', function (event) {
+    event.preventDefault();
+    console.log('Not submitting, time to validate!');
+});
 					</code></pre>
 				</section>
 			</section>
 			<!-- end: 3 -->
 
-			<!-- Library: 4-->
+			<!-- Hollabacks: 4-->
 			<section>
 				<section>
-					<h3>What is a library?</h3>
-					<p>A collection of reusable methods for a particular purpose.</p>
-					<p>Code that:</p>
-					<ul>
-						<li>someone else wrote</li>
-						<li>you can use</li>
-						<li>included with your code</li>
-					</ul>					
+					<h3>Callbacks</h3>
+					<p>A piece of executable code that is passed as an argument to other code.</p>
+					<p>Code accepting the call back executes it at a convenient time.</p>
+					<p>This can be immediate, a synchronous callback, or it might happen later, an asynchronous callback.</p>
 				</section>
 				<section>
-					<p>A math library could have</p>
-					<pre><code class="javascript">
-math.sum(array);
-math.pow(num, num);
-math.factorial(num);					
-					</code></pre>		
+					<h3>Events + Callbacks</h3>
+					<p>Callbacks are perfect for event handlers.</p>
+					<p>Give the event handler code to execute when the event is captured.</p>
+					<p>This can either be done inline, or the function can be defined before hand.</p>
 				</section>
 				<section>
-					<p>How would I use this?</p>
-					<!-- escape this so it doesn't run -->
+					<h3>Adding callbacks</h3>
 					<pre><code class="javascript">
-&lt;script src=&quot;http://imagine-it.org/math.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-	var answer = math.sum(2, 2);
-	alert(answer);
-&lt;/script&gt;
+$('form').on('submit', function (event) {
+	event.preventDefault();
+    console.log('Not submitting, time to validate!');
+});
+					</code></pre>
+					<pre><code class="javascript">
+function onButtonClick() {
+	console.log('clicked!');
+};
+
+$('#button').on('click', onButtonClick);
 					</code></pre>
 				</section>
 			</section>
 			<!-- end: 4 -->
 
-			<!-- Exercise time: 5 -->
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->
+
+			<!-- Effects: 5-->
 			<section>
 				<section>
-					<h3>Life without jQuery</h3>
-					<p>Lets try some dom manipulation without the use of jquery, but using a different library.</p>
+					<h3>Effects and animations</h3>
+					<p>jQuery provides support and techniques for adding animations and effects to your page.</p>
+					<p>This includes simple, standard animations.</p>
 				</section>
 				<section>
-					<h3>Exercise time</h3>
-					<a class='links' href='http://www.teaching-materials.org/jquery/exercises/videoplayer_library.html'>teaching-materials.org/
-						jquery/exercises/videoplayer_library.html</a>
-				</section>
-				<section>
-					<h3>What do we need to do?</h3>
-					<ul>
-						<li class="fragment fade-in">Make an array of the links on the page using document.getElementsByTagName(tagName)</li>
-						<li class="fragment fade-in">Iterate through the array. In each iteration of the loop:
-							<ul>
-							<li class="fragment fade-in">Find the current href</li>
-							<li class="fragment fade-in">Generate a thumbnail URL</li>
-							<li class="fragment fade-in">Create an IMG element</li>
-							<li class="fragment fade-in">Set the "src" of the IMG element</li>
-							<li class="fragment fade-in">Append the IMG to the link</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h3>How can we?</h3>
-					<ul>
-						<li class="fragment fade-in">Array of the links: document.getElementsByTagName(tagName)</li>
-						<li class="fragment fade-in">Iterate through the array. In each iteration of the loop:
-							<ul>
-							<li class="fragment fade-in">Current href: element.getAttribute(name)</li>
-							<li class="fragment fade-in">Thumbnail URL: youtube.generateThumbnailUrl(videoUrl)</li>
-							<li class="fragment fade-in">IMG element: document.createElement(tagName)</li>
-							<li class="fragment fade-in">Set "src": element.setAttribute(name, value)</li>
-							<li class="fragment fade-in">Append the IMG: element.appendChild(element)</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h3>The code</h3>
 					<pre><code class="javascript">
-var videoLinks = document.getElementsByTagName('a');
-for (var i = 0; i &lt; videoLinks.length; i++) {
-	var linkUrl = videoLinks[i].getAttribute('href');
-	var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
-	var thumbnailImg = document.createElement('img');
-	thumbnailImg.setAttribute('src', thumbnailUrl);
-	videoLinks[i].appendChild(thumbnailImg);
-}
+$('#error').toggle(1000);
+					</code></pre>
+					<pre><code class="javascript">
+$('#error').fadeIn();
+					</code></pre>
+					<pre><code class="javascript">
+$('#error').show(1000, function(){
+        $(this).addClass('redText')
+});
 					</code></pre>
 				</section>
-
+				<section>
+					<h3>Get fancy with your own.</h3>
+					<p>You also have the ability to create your own.</p>
+					<pre class="fragment fade-in"><code class="javascript">
+$(selector).animate({params},speed,callback);
+					</code></pre>
+					<p class="fragment fade-in">This moves a <div> element to the right, until it has reached a left property of 250px.</p>
+				</section>
+				<section>
+					<pre><code class="javascript">
+$(selector).animate({params},speed,callback);
+					</code></pre>	
+					<p>The required params parameter defines the CSS properties to be animated.</p>
+					<p>Speed specifies the duration of the effect: "slow", "fast", or milliseconds.</p>
+					<p>The callback parameter is a function to be executed after the animation</p>
+				</section>
 			</section>
 			<!-- end: 5 -->
 
-			<!-- What is jQuery: 6 -->
-			<section>
-				<section>
-					<H3>jQuery</H3>
-					<p>The most popular library.</p>
-					<p>Write less code for more common tasks.</p>
-					<p>Abstracts certain functionality for cross browser support.</p>
-					<p>Open source, big community.</p>
-				</section>
-				<section>
-					<h3>What does it handle</h3>
-					<ul>
-						<li class="fragment fade-in">Data manipulation</li>
-						<li class="fragment fade-in">Dom manipulation</li>
-						<li class="fragment fade-in">Events</li>
-						<li class="fragment fade-in">AJAX</li>
-						<li class="fragment fade-in">Effects & animation</li>
-					</ul>
-				</section>
-				<section>
-					<h3>What it leaves up to you</h3>
-					<ul>
-						<li class="fragment fade-in">HTML templating</li>
-						<li class="fragment fade-in">Widgets</li>
-						<li class="fragment fade-in">Graphics/charts</li>
-						<li class="fragment fade-in">App architecture</li>
-						<li class="fragment fade-in">Themes</li>
-					</ul>
-				</section>
+			<!-- Exercise time: 6 -->
+			<section>				
+				<p>www.teaching-materials.org/jquery2/exercises/exercise_events.html</p>
 			</section>
 			<!-- end: 6 -->
 
-			<!-- Seeing the difference: 7 -->
+			<!-- break -->
+			<section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->			
+
+			<!-- Plugins: 7 -->
 			<section>
 				<section>
-					<h3>See it to believe it</h3>
-					<div>
-						<p>Pure JavaScript</p>
-						<pre><code class="javascript">
-var elems = document.getElementsByTagName("img");
-for (var i = 0; i< elems.length; i++) {
-	elems[i].style.display = "none";
-}
-						</code></pre>
-					</div>	
-					<div class="fragment fade-in">
-						<p>jQuery</p>
-						<pre><code class="javascript">
-var elems = document.getElementsByTagName("img");
-for (var i = 0; i< elems.length; i++) {
-	elems[i].style.display = "none";
-}
-						</code></pre>
-					</div>
+					<H3>Plugins</H3>
+					<p>Similar to libraries.</p>
+					<p>Adds a specific feature to an existing code.</p>
+					<ul>
+						<li class="fragment fade-in">Code someone else has written.</li>
+						<li class="fragment fade-in">Included, or injected, with your code.</li>
+						<li class="fragment fade-in">Documented for use.</li>
+					</ul>
 				</section>
 				<section>
-					<div>
-						<p>Old school</p>
-						<pre><code class="javascript">
-var p = document.createElement('p');
-p.appendChild(document.createTextNode('Welcome!'));
-p.style.cssFloat = 'left';
-p.style.backgroundColor = 'red';
-p.className = 'special';
-document.querySelector('div.header').appendChild(p);
-						</code></pre>
-					</div>
-					<div class="fragment fade-in">
-						<p>New hottness</p>
-						<pre><code class="javascript">
-var newP = $('<p>Welcome!</p>');
-newP.css({'float': 'left', 'background-color': 'red')
-newP.addClass('special');
-$('div.header').append(newP);
-						</code></pre>
-					</div>
-				</section>				
+					<pre><code class="javascript">
+"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."
+					</code></pre>						
+				</section>
+				<section>
+					<h3>Which should I use?</h3>
+					<p class="questions">http://blog.pamelafox.org/2013/07/which-javascript-library-should-i-pick.html</p>
+				</section>
+				<section>
+					<h3>How would I use one?</h3>
+					<p>Download the plugin and associated files from the site or github repo.</p>
+					<p>Copy them into your project folder.</p>
+				</section>
+				<section>
+					<p>You may need to reference certain items on to your page.</p>
+					<p>Perhaps a css file.</p>
+					<pre><code class="javascript">
+&lt;link rel=&quot;type/stylesheet&quot; type=&quot;text/css&quot; href=&quot;tablesorter.css&quot;&gt;
+					</code></pre>					
+				</section>
+				<section>
+					<p>In the HTML, add a &lt;script&gt; tag for the jQuery plugin itself.</p>
+					<pre><code class="javascript">
+&lt;script src=&quot;lib/tablesorter.js&quot;&gt;&lt;script&gt;
+					</code></pre>					
+				</section>
+				<section>
+					<p>In the JavaScript, call the jQuery plugin on your DOM.</p>
+					<pre><code class="javascript">
+$('table').tableSorter();
+					</code></pre>					
+				</section>								
 			</section>
 			<!-- end: 7 -->
 
-			<!-- jQuery basics: 8 -->
+			<!-- break -->
 			<section>
-				<section>
-					<h3>Start with something basic</h3>
-					<pre class="fragment fade-in"><code class="javascript">
-&lt;p&gt;Welcome to jQuery!&lt;/p&gt;
-					</code></pre>
-					<p>Add a class</p>
-					<pre class="fragment fade-in"><code class="javascript">
-$('p').addClass('special');					
-					</code></pre>
-					<p>Results in</p>
-					<pre class="fragment fade-in"><code class="javascript">
-&lt;p class=&quot;special&quot;&gt;Welcome to jQuery!&lt;/p&gt;					
-					</code></pre>
-				</section>
-				<section>
-					<p>What is going on in this important bit.</p>
-					<pre><code class="javascript">
-$('p').addClass('special');					
-					</code></pre>
-					<p class="fragment fade-in">Break it into three parts.</p>
-				</section>
-				<section>
-					<p>1: dolla dolla bill y'all.</p>
-					<pre><code class="javascript">
-$				
-					</code></pre>
-					<p class="fragment fade-in">The global jQuery function.</p>
-					<p class="fragment fade-in">Tell jQuery to do your bidding.</p>
-				</section>
-				<section>
-					<p>2: get it all.</p>
-					<pre><code class="javascript">
-('p')				
-					</code></pre>
-					<p class="fragment fade-in">Finds DOM element(s) according to what's in the quotes.</p>
-					<p class="fragment fade-in">Returns a "jQuery collection."</p>
-				</section>
-				<section>
-					<p>3: make it special.</p>
-					<pre><code class="javascript">
-addClass('special')				
-					</code></pre>
-					<p class="fragment fade-in">Built-in jQuery method that adds the specified class to the collection.</p>
-					<p class="fragment fade-in">Adds it to all memebers of the collection.</p>
-				</section>
+				<p class="individually">Questions?</p>
+			</section>
+			<!-- end break -->	
+
+			<!-- Exercise: 8 -->
+			<section>
+				<p class="questions">www.teaching-materials.org/jquery2/exercises/exercise_plugin.html</p>
 			</section>
 			<!-- end: 8 -->
 
-			<!-- Finding stuff: 9 -->
+			<!-- Patterns: 9 -->
 			<section>
 				<section>
-					<h3>Find all kinds of things!</h3>
-					<img class="fragment fade-in" src="./images/allTheThings.png"></img>
+					<h3>Patterns</h3>
+					<p>No one can tell you how to code.</p>
+					<p>But we don't want everyone to hate us.</p>
 				</section>
 				<section>
-					<p>Use CSS selectors to match and find elements in the dom.</p>
-					<p>All selectors are valid.</p>
-				</section>				
+					<p>There are "rules" to follow known as patterns.</p>
+					<p>Remember no one can tell you to stick to these rules.</p>
+					<p>Your friends, coworkers, other people who read your code, will appreciate it.</p>
+				</section>
 				<section>
+					<h3>Some jQuery patterns</h3>
+					<p>Name variables with $</p>
 					<pre><code class="javascript">
-&lt;p&gt;Welcome!&lt;/p&gt;
-					</code></pre>
-					<p class="fragment fade-in">Find it with:</p>
-					<pre class="fragment fade-in"><code class="javascript">
-$('p')
+var $myVar = $('#myNode');
 					</code></pre>
 				</section>
 				<section>
+					<p>Bind events to the document.</p>
 					<pre><code class="javascript">
-&lt;div id=&quot;main&quot;&gt;Welcome!&lt;/div&gt;
-					</code></pre>
-					<p class="fragment fade-in">Grab a hold:</p>
-					<pre class="fragment fade-in"><code class="javascript">
-$('#main')
+$(document).on('click', 'a', myCallback);
 					</code></pre>
 				</section>
 				<section>
+					<p>Store references to callback functions.</p>
 					<pre><code class="javascript">
-&lt;p class=&quot;intro&quot;&gt;Welcome!&lt;/p&gt;
-					</code></pre>
-					<p class="fragment fade-in">Get at it:</p>
-					<pre class="fragment fade-in"><code class="javascript">
-$('.intro')	
-					</code></pre>
+var myCallback = function(argument) {
+  // do something cool
+};
+
+$(document).on('click', 'p', myCallback);
+					</code></pre>					
 				</section>
 				<section>
+					<p>Descend from the id selector.</p>
 					<pre><code class="javascript">
-&lt;div id=&quot;main&quot;&gt;
-&lt;p class=&quot;intro&quot;&gt;Welcome!&lt;/p&gt;
-&lt;/div&gt;
-					</code></pre>
-					<p class="fragment fade-in">You've got the idea:</p>
-					<pre class="fragment fade-in"><code class="javascript">
-$('#main .intro')
-					</code></pre>
-				</section>
-				<section>
-					<p>All selectors are valid.</p>
-					<p>When in doubt, check the docs.</p>
+var arms = $('#container div.robotarm');
+					</code></pre>					
 				</section>
 			</section>
 			<!-- end: 9 -->
 
-			<!-- Including it: 10 -->
+			<!-- Anti patters: 10 -->
 			<section>
 				<section>
-					<h3>How do I get to use all this</h3>
-					<p>All the functionality jQuery gives you looks cool, so now lets make sure we can use it.</p>
+					<h3>Ying and Yang</h3>
+					<p>Just like good practices, there are bad ones too.</p>
+					<p>There are styles to avoid.</p>
 				</section>
 				<section>
-					<p>Lucky that it's so easy to do.</p>
-					<p>Download (http://jquery.com/download) or link from an official CDN.</p>
+					<p>Once again, there is nothing wrong with these styles.</p>
+					<p>It is simply that there are better ways. Your code might run faster, be safer, etc...</p>
+					<p>The choice is still yours.</p>
 				</section>
 				<section>
-					<p>Once you have it, include it on your page</p>
-					<pre><code>
-&lt;html&gt;
-&lt;body&gt;
-	&lt;h1&gt;Hi!&lt;/h1&gt;
-	&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;
-	&lt;script&gt;
-	// Your code here
-	&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;						
+					<h3>Some jQuery anti-patterns</h3>
+					<p>Requerying all the time.</p>
+					<pre><code class="javascript">
+$('body').append('&lt;div class="stuff"/&gt;');
+$('div.stuff').click(function(){});
 					</code></pre>
+				</section>
+				<section>
+					<p>Using a universal selector.</p>
+					<pre><code class="javascript">
+$('.class :radio') // implied universal
+					</code></pre>
+					<pre class="fragment fade-in"><code class="javascript">
+$('.class *:radio') // explicit universal
+					</code></pre>
+					<pre class="fragment fade-in"><code class="javascript">
+$('.class input:radio') // much better
+					</code></pre>
+				</section>
+				<section>
+					<p>A new var for ever variable.</p>
+					<pre><code class="javascript">
+var one = 1;
+var two = function() {//stuff};
+var three = two(one);
+					</code></pre>					
+					<pre class="fragment fade-in"><code class="javascript">
+var one = 1,
+	two = function() {//stuff},
+	three = two(one);
+					</code></pre>					
 				</section>
 			</section>
 			<!-- end: 10 -->
 
-			<!-- Exercise 2: 11 -->
+			<!-- Chains: 11 -->
 			<section>
 				<section>
-					<h3>Life without jQuery</h3>
-					<p>Lets try some dom manipulation without the use of jquery, but using a different library.</p>
-				</section>
-				<section>
-					<h3>What do we need to do?</h3>
-					<ul>
-						<li class="fragment fade-in">Open up girldevelopit.com in Chrome or Firefox, and open up the console.</li>
-						<li class="fragment fade-in">Use jQuery to find the following parts of the page:
-							<ul>
-							<li class="fragment fade-in">Every image on the page</li>
-							<li class="fragment fade-in">The upper left-hand logo</li>
-							<li class="fragment fade-in">The logos of the media sources that featured GirlDevelopIt</li>
-							<li class="fragment fade-in">The big tagline in the middle</li>
-							<li class="fragment fade-in">All of the green colored chapter links</li>
-							<li class="fragment fade-in">The "CLASSES" text in the center area</li>
-							<li class="fragment fade-in">The donate link</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h3>The code</h3>
-					<pre><code class="javascript">
-$("img");
-$(".logo");
-$(".media");
-$(".tagline")
-$("a.green");
-$(".blue .topic");
-$("#donate a");
+					<h3>Keep the chain going.</h3>
+					<p>As part of not requerying you can chain methods on the end of one another.</p>
+					<pre class="fragment fade-in"><code class="javascript">
+banner.css('color', 'red');
+banner.html('Welcome!');
+banner.show();						
 					</code></pre>
 				</section>
-
+				<section>
+					<p>This could also be written as</p>
+					<pre class="fragment fade-in"><code class="javascript">
+banner.css('color', 'red').html('Welcome!').show();						
+					</code></pre>
+				</section>
+				<section>
+					<p>If you're real fancy.</p>
+					<pre class="fragment fade-in"><code class="javascript">
+banner.css('color', 'red');
+	  .html('Welcome!');
+	  .show();						
+					</code></pre>
+				</section>								
 			</section>
 			<!-- end: 11 -->
 
-			<!-- Reading elements: 12 -->
+			<!-- Dom readiness: 12 -->
 			<section>
 				<section>
-					<h3>Read off the dom</h3>
-					<p>Find out information about the elements on the page.</p>
-				</section>
-				<section>
-					<p>Say we have an element like so:</p>
-					<pre><code>
-&lt;a href=&quot;http://www.yahoo.com&quot; style=&quot;color:purple&quot;&gt;Yahoo&lt;/a&gt;						
+					<h3>DOM readiness</h3>
+					<p>Broken code</p>
+					<p>DOM manipulation and event binding in the &lt;head&gt;</p>
+					<pre class="fragment fade-in"><code class="javascript">
+&lt;head&gt;
+ &lt;script&gt;
+  $('body').append( myNode );
+ &lt;/script&gt;
+&lt;/head&gt;				
 					</code></pre>
 				</section>
 				<section>
-					<p>Find it:</p>
-					<pre><code>
-$('a');		
+					<p>If you need to load a script in the &lt;head&gt;, wait for the rest of the DOM to be ready before executing.</p>
+					<p>You can do this with events.</p>
+					<p class="fragment fade-in">The ready event can handle this.</p>
+					<pre class="fragment fade-in"><code class="javascript">
+&lt;body&gt;
+ ...
+ &lt;script&gt;
+  $(document).ready(function() {
+    // do something when the DOM is fully loaded
+  });
+ &lt;/script&gt;
+&lt;/body&gt;										
 					</code></pre>
-					<p>Save it:</p>
-					<pre><code>
-var myLink = $('a');			
-					</code></pre>
-				</section>
-				<section>
-					<p>Now what?</p>
-					<p class="fragment fade-in">Interrogate it!</p>
-					<div class="fragment fade-in">
-						<pre><code>
-myLink.html();
-						</code></pre>
-						<p class="fragment fade-in">'Yahoo!'</p>
-					</div>
-				</section>
-				<section>
-					<div class="fragment fade-in">
-						<pre><code>
-myLink.attr('href');
-						</code></pre>
-						<p class="fragment fade-in">'http://www.yahoo.com'</p>
-					</div>
-					<div class="fragment fade-in">
-						<pre><code>
-myLink.css('color');
-						</code></pre>
-						<p class="fragment fade-in">'purple'</p>
-					</div>
-				</section>
-			</section>
+				</section>								
+			</section>			
 			<!-- end: 12 -->
 
-			<!-- Changing elements: 13 -->
+			<!-- Till then: 13 -->
 			<section>
 				<section>
-					<h3>Change whats on the page</h3>
-					<p>Alter the properties of the elements on the page.</p>
-					<p>IN REAL TIME!!</p>
+					<h3>Do you really need it?</h3>
+					<p>jQuery is very nice, but do you need it?</p>
+					<p>Remember you can do all the things you do with jQuery with pure JavaScript.</p>
 				</section>
 				<section>
-					<p>Once again an element like something:</p>
-					<pre><code>
-&lt;a href=&quot;http://www.yahoo.com&quot;&gt;Yahoo!&lt;/a&gt;			
-					</code></pre>
+					<p>jQuery as part of all that it adds, may give you a lot more than you need.</p>
+					<p>You are always loading the entire library when you use it.</p>
+					<p>This can be slow and cumbersome.</p>
 				</section>
 				<section>
-					<p>Change it up:</p>
-					<pre><code>
-$('a').html('Google');
-$('a').attr('href', 'http://www.blue.com');
-$('a').css({'color': 'blue'});		
-					</code></pre>
+					<p class="questions">youmightnotneedjquery.com/</p>
 				</section>
 				<section>
-					<p>Be left with:</p>
-					<pre><code>
-&lt;a href=&quot;http://www.google.com&quot; style=&quot;color:blue&quot;&gt;Google&lt;/a&gt;						
-					</code></pre>
+					<p>Look at all of your options.</p>
+					<p>Make sure it suits your needs best.</p>
 				</section>
 			</section>
 			<!-- end: 13 -->
 
-			<!-- Creating elements: 14 -->
+			<!-- Till then: 14 -->
 			<section>
 				<section>
-					<h3>Creation</h3>
-					<p>Not only can you edit what is in the dom, you can add to it as well.</p>
-					<p>Create elemets in the dom with jQuery.</p>
+					<h3>Where to?</h3>
 				</section>
 				<section>
-					<p>Pass in an HTML string and jQuery will create the element for you.</p>
-					<p>The result is also returned as a collection.</p>
-				</section>
-				<section>
-					<p>jQuery:</p>
-					<pre><code>
-$('&lt;p&gt;');			
-					</code></pre>
-					<p>HTML:</p>
-					<pre><code>
-&lt;p&gt;&lt;/p&gt;						
-					</code></pre>
-				</section>
-				<section>
-					<p>What you ask:</p>
-					<pre><code>
-$('&lt;p&gt;Welcome!&lt;/p&gt;');
-					</code></pre>
-					<p>What you get:</p>
-					<pre><code>
-&lt;p&gt;Welcome!&lt;/p&gt;					
-					</code></pre>
-				</section>
-				<section>
-					<p>Witchcraft:</p>
-					<pre><code>
-$('&lt;p class=&quot;intro&quot;&gt;Welcome!&lt;/p&gt;');
-					</code></pre>
-					<p>Black magic:</p>
-					<pre><code>
-&lt;p class=&quot;intro&quot;&gt;Welcome!&lt;/p&gt;					
-					</code></pre>
-				</section>				
-			</section>
-			<!-- end: 15 -->
-
-			<!-- Injecting: 16 -->
-			<section>
-				<section>
-					<h3>So what?</h3>
-					<p>Creating things is cool, but doesn't look super useful.</p>
-					<p>It is, once we start to store these elements and use them later.</p>
-				</section>
-				<section>
-					<p>jQuery returns collections when it perfoms it's functions.</p>
-					<p>We can save the return of these functions and use them as needed.</p>
-				</section>
-				<section>
-					<p>Created our welcome paragraph and save it off</p>
-					<pre><code>
-var myParagraph = $('&lt;p class=&quot;intro&quot;&gt;Welcome!&lt;/p&gt;');
-					</code></pre>
-				</section>
-				<section>
-					<p>Once we got it, flaunt it!</p>
-					<p>Inject it into other parts of the page.</p>
-					<pre><code>
-$('body').append(myParagraph);
-					</code></pre>
-					<pre><code>
-$('body').prepend(myParagraph);
-					</code></pre>
-					<pre><code>
-myParagraph.appendTo($('body'));
-					</code></pre>
+					<p class="questions">THANK YOU!!</p>
 				</section>
 			</section>
-			<!-- end: 16 -->
-
-			<!-- Looping: 17 -->
-			<section>
-				<section>
-					<h3>Loops</h3>
-					<p>Looping is something you constantly do.</p>
-					<p>jQuery makes it easy to loop over the collections it gives.</p>
-				</section>
-				<section>
-					<pre><code>
-var links = $('a');
-
-links.each(function(index, elem) {
-   var link = $(elem);
-   link.html(link.html() + '!');
-});
-					</code></pre>
-					<pre><code>
-var links = $('a');
-var processElem = function(index, elem) {
-   var link = $(elem);
-   link.html(link.html() + '!');
-};
-
-links.each(processElem);
-					</code></pre>
-				</section>
-			</section>
-			<!-- end: 17 -->
-
-			<!-- Exercise 3: 18 -->
-			<section>
-				<section>
-					<h3>Lets update</h3>
-					<p>Now that we've used it, lets go back and update our video links.</p>
-				</section>
-				<section>
-					<p>Go back to our video page and change out the regular JavaScript for jQuery instead.</p>
-					<p>Remember to include jQuery as a script.</p>
-				</section>
-				<section>
-					<h3>The code</h3>
-					<pre><code class="javascript">
-   var videoLinks = $('a');
-   videoLinks.each(function(index, elem) {
-      var videoLink = $(elem);
-      var linkUrl = videoLink.attr('href');
-      var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
-      var thumbnailImg = $('<img>');
-      thumbnailImg.attr('src', thumbnailUrl);
-      videoLink.append(thumbnailImg);
-    });
-					</code></pre>
-				</section>
-			</section>
-			<!-- end: 18 -->
-
-			<!-- Till tomorrow: 19 -->
-			<section>
-				<section>
-					<p>All for now.</p>
-					<p>Pick it up tomorrow.</p>
-				</section>
-				<section>
-					<p class="questions">Questions?</p>
-				</section>
-			</section>
-			<!-- end: 19 -->
+			<!-- end: 14 -->
 
 		</div> <!-- end slides -->
 		<footer>
